@@ -43,4 +43,19 @@ export default {
   display: -ms-flexbox;
   display: flex;
 }
+
+@media screen and (max-width: 1172px) {
+  .container {
+    width: auto;
+    padding: 0 16px;
+  }
+}
+@media screen and (max-width: 946px){
+.container {
+   -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  }
+}
 </style>

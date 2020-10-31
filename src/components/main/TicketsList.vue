@@ -54,7 +54,7 @@
           <div class="date-time" v-if="ticket.itineraries[0][0].stops > 0">
             <span class="date"
               >{{ getDate(ticket.itineraries[0][0].segments[1].arr_time)
-              }}<span>+1</span></span
+              }}<!-- <span>+1</span> --></span
             >
             <span class="time">{{
               getTime(ticket.itineraries[0][0].segments[1].arr_time)
@@ -63,7 +63,7 @@
           <div class="date-time" v-else>
             <span class="date"
               >{{ getDate(ticket.itineraries[0][0].segments[0].arr_time)
-              }}<span>+1</span></span
+              }}<!-- <span>+1</span> --></span
             >
             <span class="time">{{
               getTime(ticket.itineraries[0][0].segments[0].arr_time)

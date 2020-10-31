@@ -16,7 +16,6 @@
         width: 1140px;
         height: 100%;
         margin: 0 auto;
-        padding: 0 22px;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -30,5 +29,12 @@
             text-align: left;
         }
     }
+}
+
+@media screen and (max-width: 1172px) {
+  .header-inner {
+    width: auto;
+    padding: 0 16px;
+  }
 }
 </style>
