@@ -74,12 +74,11 @@
 
 @media screen and (max-width: 946px) {
   .container {
+    .none {
+      display: none;
+    }
     .sidebar-filter {
       width: auto;
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-      flex-direction: row;
       .filter__comp {
         max-height: 132px;
       }
@@ -102,14 +101,26 @@
         @include flex-col();
         .block-price {
           width: auto;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+          flex-direction: row;
+          @include align_items_cent();
+          padding: 10px 15px 10px;
+
           .text-gray,
           .flex-block {
             display: none;
           }
           .btn__green {
-            width: 172px;
-            margin-left: auto;
-            margin-right: auto;
+            width: 142px;
+            margin: 0 0 0 auto;
+            font-size: 15px;
+            line-height: 18px;
+          }
+          .price {
+            font-size: 20px;
+            line-height: 24px;
           }
         }
 
@@ -120,6 +131,48 @@
             margin-right: 30px !important;
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .container .main-block__group .block-info {
+    .col{
+      margin-top: 10px;
+    }
+    .info {
+      @include flex-col();
+      margin-bottom: 18px;
+      .date-time {
+        margin-right: 14px;
+        .time {
+          font-size: 18px;
+          line-height: 23px;
+        }
+      }
+      // .time-range {
+      //   width: 110px !important;
+      //   margin-right: 14px !important;
+      // }
+    }
+    .info-2 {
+      .non-refundeble span {
+        display: none;
+      }
+      .text-dotted {
+        margin-right: 12px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container .main-block__group .block-info {
+    .info {
+      .time-range {
+        width: 155px !important;
+        margin-right: 14px !important;
       }
     }
   }

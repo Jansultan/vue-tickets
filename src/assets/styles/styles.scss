@@ -250,6 +250,9 @@
         -ms-flex-positive: 1;
         flex-grow: 1;
         padding: 40px 0 15px 44px;
+        .col{
+          @include disflex();
+        }
         .info {
           margin-bottom: 22px;
         }
@@ -411,4 +414,4 @@
   }
 }
 
-@import 'styles.mob.scss'
+@import "styles.mob.scss";

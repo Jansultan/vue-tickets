@@ -18,65 +18,64 @@
             />
             <span>{{ ticket.itineraries[0][0].segments[0].carrier_name }}</span>
           </div>
-          <div class="date-time">
-            <span class="date">{{
-              getDate(ticket.itineraries[0][0].segments[0].dep_time)
-            }}</span>
-            <span class="time">{{
-              getTime(ticket.itineraries[0][0].segments[0].dep_time)
-            }}</span>
-          </div>
-          <div class="time-range">
-            <div class="sapce">
-              <span class="text-gray10">{{
-                ticket.itineraries[0][0].segments[0].origin_code
+          <div class="col">
+            <div class="date-time">
+              <span class="date">{{
+                getDate(ticket.itineraries[0][0].segments[0].dep_time)
               }}</span>
-              <span class="text-black12">{{
-                formatTime(ticket.itineraries[0][0].traveltime)
-              }}</span>
-              <span class="text-gray10">{{
-                ticket.itineraries[0][0].segments[0].dest_code
+              <span class="time">{{
+                getTime(ticket.itineraries[0][0].segments[0].dep_time)
               }}</span>
             </div>
-            <div class="line-block">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
+            <div class="time-range">
+              <div class="sapce">
+                <span class="text-gray10">{{
+                  ticket.itineraries[0][0].segments[0].origin_code
+                }}</span>
+                <span class="text-black12">{{
+                  formatTime(ticket.itineraries[0][0].traveltime)
+                }}</span>
+                <span class="text-gray10">{{
+                  ticket.itineraries[0][0].segments[0].dest_code
+                }}</span>
+              </div>
+              <div class="line-block">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+              <span
+                class="text-orange12"
+                v-if="ticket.itineraries[0][0].stops > 0"
+                >через {{ ticket.itineraries[0][0].segments[0].dest }},
+                {{ formatTime(ticket.itineraries[0][0].layovers[0]) }}
+              </span>
+              <span v-else class="text-green12">прямой рейс</span>
             </div>
-            <span
-              class="text-orange12"
-              v-if="ticket.itineraries[0][0].stops > 0"
-              >через {{ ticket.itineraries[0][0].segments[0].dest }},
-              {{ formatTime(ticket.itineraries[0][0].layovers[0]) }}
-            </span>
-            <span v-else class="text-green12">прямой рейс</span>
-          </div>
-          <div class="date-time" v-if="ticket.itineraries[0][0].stops > 0">
-            <span class="date"
-              >{{ getDate(ticket.itineraries[0][0].segments[1].arr_time)
-              }}<!-- <span>+1</span> --></span
-            >
-            <span class="time">{{
-              getTime(ticket.itineraries[0][0].segments[1].arr_time)
-            }}</span>
-          </div>
-          <div class="date-time" v-else>
-            <span class="date"
-              >{{ getDate(ticket.itineraries[0][0].segments[0].arr_time)
-              }}<!-- <span>+1</span> --></span
-            >
-            <span class="time">{{
-              getTime(ticket.itineraries[0][0].segments[0].arr_time)
-            }}</span>
+            <div class="date-time" v-if="ticket.itineraries[0][0].stops > 0">
+              <span class="date"
+                >{{ getDate(ticket.itineraries[0][0].segments[1].arr_time)
+                }}<!-- <span>+1</span> --></span
+              >
+              <span class="time">{{
+                getTime(ticket.itineraries[0][0].segments[1].arr_time)
+              }}</span>
+            </div>
+            <div class="date-time" v-else>
+              <span class="date"
+                >{{ getDate(ticket.itineraries[0][0].segments[0].arr_time)
+                }}<!-- <span>+1</span> --></span
+              >
+              <span class="time">{{
+                getTime(ticket.itineraries[0][0].segments[0].arr_time)
+              }}</span>
+            </div>
           </div>
         </div>
         <div class="info-2">
           <span class="text-dotted">Детали перелета</span>
           <span class="text-dotted">Условия тарифа</span>
-          <span
-            class="non-refundeble"
-            v-if="!ticket.refundable"
-          >
+          <span class="non-refundeble" v-if="!ticket.refundable">
             <img src="../../assets/icons/icon-non-refundeble.svg" alt="" />
             <span>невозвратный</span>
           </span>
@@ -99,7 +98,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     tickets_list: {},
@@ -120,8 +118,7 @@ export default {
       return h + " ч " + m + " м";
     },
   },
-  created() {
-  },
+  created() {},
 };
 </script>
 

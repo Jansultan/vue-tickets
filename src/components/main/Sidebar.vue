@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-filter">
+  <div class="sidebar-filter none">
     <div class="filter">
       <span class="filter_title">Опции тарифа</span>
       <label class="container-checkbox"
