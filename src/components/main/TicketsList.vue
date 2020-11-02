@@ -113,9 +113,16 @@ export default {
       return val.slice(val.length - 5, val.length);
     },
     formatTime(seconds) {
-      const h = Math.floor(seconds / 3600);
-      const m = Math.floor((seconds % 3600) / 60);
-      return h + " ч " + m + " м";
+      const d = Math.floor(seconds / (60 * 60 * 24));
+      const h = Math.floor((seconds % (60 * 60 * 24)) / (60 * 60));
+      const m = Math.floor(((seconds % (60 * 60 * 24)) % (60 * 60)) / 60);
+      if(d != 0){
+        return d + " д " + h + " ч " + m + " м";
+      }else if(h != 0){
+        return h + " ч " + m + " м";
+      }else{
+        return m + " м";
+      }
     },
   },
   created() {},
