@@ -117,11 +117,11 @@ export default {
       const h = Math.floor((seconds % (60 * 60 * 24)) / (60 * 60));
       const m = Math.floor(((seconds % (60 * 60 * 24)) % (60 * 60)) / 60);
       if(d != 0){
-        return d + " д " + h + " ч " + m + " м";
+        return d + " д " + (h<10 ? ("0"+h) : h) + " ч " + (m<10 ? ("0"+m) : m) + " м";
       }else if(h != 0){
-        return h + " ч " + m + " м";
+        return (h<10 ? ("0"+h) : h)  + " ч " + (m<10 ? ("0"+m) : m) + " м";
       }else{
-        return m + " м";
+        return (m<10 ? ("0"+m) : m) + " м";
       }
     },
   },
