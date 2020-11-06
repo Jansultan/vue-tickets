@@ -7,7 +7,7 @@ import store from './store/index'
 import SequentialEntrance from "vue-sequential-entrance";
 import "vue-sequential-entrance/vue-sequential-entrance.css";
 
-// Vue.config.productionTip = false
+Vue.config.productionTip = false
 import '../src/assets/styles/font/stylesheet.css'
 
 Vue.use(VueRouter)
