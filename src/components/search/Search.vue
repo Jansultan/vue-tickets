@@ -7,7 +7,11 @@
         <button @click="openModal">Фильтры</button>
       </div>
     </div>
-    <Modal v-if="isModalOpen" :tickets="airlines" @close="isModalOpen = false" />
+    <Modal
+      v-if="isModalOpen"
+      :tickets="airlines"
+      @close="isModalOpen = false"
+    />
   </div>
 </template>
 
@@ -27,7 +31,7 @@ export default {
   computed: {
     ...mapGetters(["filteredList", "getAirlines"]),
     tickets() {
-      // console.log(this.filteredList);
+      console.log(this.filteredList);
       return this.filteredList;
     },
     airlines() {
@@ -41,50 +45,12 @@ export default {
     },
   },
   async mounted() {
-    this.loadTickets(1000);
+    await this.loadTickets(1000);
   },
 };
 </script>
 
 <style lang="scss" scoped>
-//flexbox
-@mixin disflex() {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-@mixin flex-col() {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-@mixin align_items_cent() {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-@mixin justify_content_cent() {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-@mixin justify_content_start() {
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-}
-
-@mixin justify_content_sp_between() {
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
 @mixin text($style, $weithg, $size, $height, $spacing, $color) {
   font-family: "Open Sans";
   font-style: $style;
@@ -97,8 +63,6 @@ export default {
 .container {
   width: 1140px;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   .block-fixed {
     position: fixed;
@@ -130,13 +94,10 @@ export default {
 }
 @media screen and (max-width: 946px) {
   .container {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     .block-fixed {
-      @include disflex();
-      @include justify_content_cent();
+      display: flex;
+      justify-content: center;
     }
   }
 }

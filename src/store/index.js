@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import tickets from './modules/tickets'
+import tickets from './modules/tickets/tickets'
 
 Vue.use(Vuex)
 

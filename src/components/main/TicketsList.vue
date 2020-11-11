@@ -59,7 +59,7 @@
               <div class="date-time" v-if="ticket.itineraries[0][0].stops > 0">
                 <span class="date"
                   >{{ getDate(ticket.itineraries[0][0].segments[1].arr_time)
-                  }}<!-- <span>+1</span> --></span
+                  }}<span v-if="countDay(ticket.itineraries[0][0].dep_date , ticket.itineraries[0][0].arr_date)>0">+{{countDay(ticket.itineraries[0][0].dep_date , ticket.itineraries[0][0].arr_date)}}д</span></span
                 >
                 <span class="time">{{
                   getTime(ticket.itineraries[0][0].segments[1].arr_time)
@@ -68,7 +68,7 @@
               <div class="date-time" v-else>
                 <span class="date"
                   >{{ getDate(ticket.itineraries[0][0].segments[0].arr_time)
-                  }}<!-- <span>+1</span> --></span
+                  }}<span v-if="countDay(ticket.itineraries[0][0].dep_date , ticket.itineraries[0][0].arr_date)>0">+{{countDay(ticket.itineraries[0][0].dep_date , ticket.itineraries[0][0].arr_date)}}д</span></span
                 >
                 <span class="time">{{
                   getTime(ticket.itineraries[0][0].segments[0].arr_time)
@@ -137,6 +137,18 @@ export default {
         return (m < 10 ? "0" + m : m) + " м";
       }
     },
+    countDay(date1, date2){
+      // console.log(new Date(date2))
+      const oneday = 24 * 60 * 60 * 1000;
+      // console.log((new Date(date2) - new Date(date1))/oneday)
+      let day = (new Date(date2) - new Date(date1))/oneday
+      if(day > 0.5){
+        return Math.ceil(day)
+      }else{
+        return Math.floor(day)
+      }
+       
+    }
   },
   created() {},
 };

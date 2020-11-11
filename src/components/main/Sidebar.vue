@@ -8,7 +8,7 @@
           <input
             type="checkbox"
             v-model="tariffs"
-            @change="filterTariff($event, 1)"
+            @click="filter_tariff.stops = $event.target.checked, setDataTariff(1)"
             value="nonestop"
           />
           <span class="checkmark"></span>
@@ -18,7 +18,7 @@
           <input
             type="checkbox"
             v-model="tariffs"
-            @change="filterTariff($event, 2)"
+            @click="filter_tariff.baggage = $event.target.checked, setDataTariff(2)"
             value="baggage"
           />
           <span class="checkmark"></span>
@@ -28,7 +28,7 @@
           <input
             type="checkbox"
             v-model="tariffs"
-            @change="filterTariff($event, 3)"
+            @click="filter_tariff.refundable = $event.target.checked, setDataTariff(3)"
             value="refundable"
           />
           <span class="checkmark"></span>
@@ -129,39 +129,8 @@ export default {
   },
   methods: {
     ...mapMutations(["SET_DATA_TARIFF", "SET_DATA_COMP"]),
-    filterTariff(event, index) {
-      // console.log(event.target.checked);
-      if (index === 1) {
-        if (event.target.checked === true) {
-          this.filter_tariff.stops = true;
-          this.setDataTariff(index);
-        } else {
-          this.filter_tariff.stops = false;
-          this.setDataTariff(index);
-        }
-      }
-
-      if (index === 2) {
-        if (event.target.checked === true) {
-          this.filter_tariff.baggage = true;
-          this.setDataTariff(index);
-        } else {
-          this.filter_tariff.baggage = false;
-          this.setDataTariff(index);
-        }
-      }
-
-      if (index === 3) {
-        if (event.target.checked === true) {
-          this.filter_tariff.refundable = true;
-          this.setDataTariff(index);
-        } else {
-          this.filter_tariff.refundable = false;
-          this.setDataTariff(index);
-        }
-      }
-    },
     setDataTariff(index) {
+      console.log(this.filter_tariff)
       this.SET_DATA_TARIFF({
         data: this.filter_tariff,
         index: index,
@@ -186,12 +155,11 @@ export default {
       }
     },
     filterComp() {
-      var vm = this;
+      let vm = this;
       if (vm.filter_comp.includes("all")) {
         vm.filter_comp.splice(0, 1);
       }
       setTimeout(() => {
-        // console.log(vm.filter_comp);
         this.setDataComp(0);
       }, 400);
     },

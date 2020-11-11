@@ -16,12 +16,8 @@
         width: 1140px;
         height: 100%;
         margin: 0 auto;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-                align-items: center;
+        align-items: center;
         h3{
             font-size: 20px;
             line-height: 28px;

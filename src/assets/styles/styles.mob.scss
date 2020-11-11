@@ -1,46 +1,6 @@
-//flexbox
-@mixin disflex() {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-@mixin flex-col() {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-@mixin align_items_cent() {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-@mixin justify_content_cent() {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-@mixin justify_content_start() {
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-}
-
-@mixin justify_content_sp_between() {
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
 @media screen and (max-width: 1172px) {
   .container {
     .main-block {
-      -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
       flex-grow: 1;
       width: auto;
       max-width: 880px;
@@ -48,8 +8,8 @@
         .block-info {
           padding: 30px 0 15px 15px;
           .comp {
-            @include flex-col();
-            @include align_items_cent();
+            flex-direction: column;
+            align-items: center;
             span {
               width: auto !important;
               text-align: center;
@@ -98,14 +58,11 @@
   .container {
     .main-block {
       &__group {
-        @include flex-col();
+        flex-direction: column;
         .block-price {
           width: auto;
-          -webkit-box-orient: horizontal;
-          -webkit-box-direction: normal;
-          -ms-flex-direction: row;
           flex-direction: row;
-          @include align_items_cent();
+          align-items: center;
           padding: 10px 15px 10px;
 
           .text-gray,
@@ -142,7 +99,7 @@
       margin-top: 10px;
     }
     .info {
-      @include flex-col();
+      flex-direction: column;
       margin-bottom: 18px;
       .date-time {
         margin-right: 14px;
